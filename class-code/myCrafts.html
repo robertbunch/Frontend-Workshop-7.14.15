@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Search</title>
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="http://ryanrodd.com/dc/search.css">
+	</head>
+	<body>
+		<div class="nav">
+			<ul class="navbar">
+				<!--
+				The list items used to be: doge, tacocat, fluffy 
+				-->
+				<li>+You</li>
+				<li>Gmail</li>
+				<li>Images</li>
+				<li><img src="images/grid.png" id="icon"></li>
+				<li><button id="signIn">Sign In</button></li>
+			</ul>
+		</div>
+		
+		<div class="logo-container">
+			<img src="images/search-logo.png" id="logo">
+		</div>
+		
+		<div class="container">
+			<form method="GET" action="http://google.com/search">
+				<input type="text" name="q" id="search-form">
+				<div class="container">
+					<input type="submit" value="Search" id="search-btn">
+					<input type="submit" value="I'm Feeling Lucky" id="search-btn">
+				</div>
+			</form>
+		</div>
+
+		<footer>
+			<div class="footer">
+				<div id="footer-left">
+					<a href="">Advertising</a>
+					<a href="">Business</a>
+					<a href="">About</a>
+				</div>
+				<div id="footer-right">
+					<a href="">Privacy</a>
+					<a href="">Terms</a>
+					<a href="">Settings</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

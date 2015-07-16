@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Google Copy</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="nav">
+		<ul class="navbar">
+			<li><a href="#" class="link">+You</a></li>
+			<li><a href="#" class="link">Gmail</a></li>
+			<li><a href="#" class="link">Images</a></li>
+			<li><a href="#"><img src="images/grid.png" id="icon"></a></li>
+			<li><button type="button" id="signIn">Sign In</button></li>
+		</ul>
+	</div>
+	<div class="logo-container">
+		<img id="logo" src="images/google-logo.png">
+	</div>
+	<div class="container">
+		<form onsubmit="var newlocation = 'http://www.google.com/search?q=' + document.getElementById('search-form').value; window.location.href = newlocation; return false;">
+			<input type="text" name="google_search" id="search-form">
+			<img src="images/microphone.png" id="microphone">
+			<div class="container">
+				<input type="submit" name="login_submit" id="search-btn" value="Google Search">
+				<input type="submit" name="login_submit" id="search-btn" value="I'm Feeling Lucky">
+			</div>
+		</form>
+	</div>
+	<div class="container2">
+		<p>Thoughtful things from Nest. <a href="#">Now on Google Play.</a></p>
+	</div>
+	<footer>
+		<div class="footer">
+			<div id="footer-left">
+				<a href="#">Advertising</a>
+				<a href="#">Business</a>
+				<a href="#">About</a>
+			</div>
+			<div id="footer-right">
+				<a href="#"><span>Updated</span> Privacy &amp; Terms</a>
+				<a href="#">Settings</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

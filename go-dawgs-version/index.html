@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Google Copy</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="js/fire-0.62.min.js"></script>
+
+</head>
+<body>
+	<div class="nav">
+		<ul class="navbar">
+			<li><a href="#" class="link">+You</a></li>
+			<li><a href="#" class="link">Gmail</a></li>
+			<li><a href="#" class="link">Images</a></li>
+			<li><a href="#"><img src="images/grid.png" id="icon"></a></li>
+			<li><button type="button" id="signIn">Sign In</button></li>
+		</ul>
+	</div>
+
+							<div id="fire-wrapper">
+								<div class="fire"></div>
+								<div class="fire-over"></div>
+							</div>
+
+                <div id="zoidberg"><img src="images/zoidberg.png"></div>
+
+                <div id="large-header" class="large-header">
+                	<div id="uga"><img src="images/ugapic.jpg"></div>
+                	<div id="uga2"><img src="images/ugapic.jpg"></div>
+                    <canvas id="demo-canvas" width="1440"></canvas>
+                    <div id="googlestuff">
+						<div class="logo-container">
+							<img id="logo" src="images/google-logo.png">
+
+						</div>                    
+						<div class="container">
+							<form onsubmit="checkEntry(document.getElementById('search-form').value); return false;">
+								<input type="text" name="google_search" id="search-form">
+								<img src="images/microphone.png" id="microphone">
+							</form>
+								<div class="container">
+									<input type="submit" name="login_submit" id="search-btn" value="Go Dogs!" onclick="checkEntry('Go Dawgs'); return false;">
+									<input type="submit" name="login_submit" id="search-btn" value="Go Tech!" onclick="checkEntry('Go Tech'); return false;">
+								</div>							
+						</div>						
+                </div>
+
+
+
+	<footer>
+		<div class="footer">
+			<div id="footer-left">
+				<a href="#">Advertising</a>
+				<a href="#">Business</a>
+				<a href="#">About</a>
+			</div>
+			<div id="footer-right">
+				<a href="#"><span>Updated</span> Privacy &amp; Terms</a>
+				<a href="#">Settings</a>
+			</div>
+		</div>
+	</footer>
+
+        <script src="js/TweenLite.min.js"></script>
+        <script src="js/EasePack.min.js"></script>
+        <script src="js/rAF.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready( function(){
+		$('.fire').fire({
+			speed:20,
+			maxPow:9,
+			gravity:0,
+			flameWidth:3,
+			flameHeight:0,
+			plasm:true,
+			fireTransparency:0,
+			fadingFlameSpeed:8,
+			mouseEffect:true
+		});	
+	});
+    -->
+function checkEntry(input){
+		if(input == "Go Dawgs"){
+			animate();
+			$('#fire-wrapper').hide();
+			$('#demo-canvas').show();
+			$('#uga').show();
+			$('#uga2').show();
+            $('#logo').show();
+            $('#zoidberg').hide();            
+		}else if(input == "Go Tech"){
+			$('#fire-wrapper').show();
+			$('#demo-canvas').hide();
+			$('#uga').hide();
+			$('#uga2').hide();
+            $('#logo').hide();
+            $('#zoidberg').hide();
+		}else if(input == 'zoidberg' || input == 'president'){
+			$('#zoidberg').show();
+		}else{
+			var newlocation = 'http://www.google.com/search?q=' + input; 
+			window.location.href = newlocation; 
+			return false;
+		}
+
+}
+
+    var width, height, largeHeader, canvas, ctx, triangles, target, animateHeader = true;
+    var colors = ['72,35,68', '43,81,102', '66,152,103', '250,178,67', '224,33,48'];
+
+    // Main
+    initHeader();
+    addListeners();
+    //initAnimation();
+
+    function initHeader() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        target = {x: 0, y: height};
+
+        largeHeader = document.getElementById('large-header');
+        largeHeader.style.height = height+'px';
+
+        canvas = document.getElementById('demo-canvas');
+        canvas.width = width;
+        canvas.height = height;
+        ctx = canvas.getContext('2d');
+
+        // create particles
+        triangles = [];
+        for(var x = 0; x < 480; x++) {
+            addTriangle(x*10);
+        }
+    }
+
+    function addTriangle(delay) {
+        setTimeout(function() {
+            var t = new Triangle();
+            triangles.push(t);
+            tweenTriangle(t);
+        }, delay);
+    }
+
+    function initAnimation() {
+        animate();
+    }
+
+    function tweenTriangle(tri) {
+        var t = Math.random()*(2*Math.PI);
+        var x = (200+Math.random()*100)*Math.cos(t) + width*0.5;
+        var y = (200+Math.random()*100)*Math.sin(t) + height*0.5-20;
+        var time = 4+3*Math.random();
+
+        TweenLite.to(tri.pos, time, {x: x,
+            y: y, ease:Circ.easeOut,
+            onComplete: function() {
+                tri.init();
+                tweenTriangle(tri);
+        }});
+    }
+
+    // Event handling
+    function addListeners() {
+        window.addEventListener('scroll', scrollCheck);
+        window.addEventListener('resize', resize);
+    }
+
+    function scrollCheck() {
+        if(document.body.scrollTop > height) animateHeader = false;
+        else animateHeader = true;
+    }
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        largeHeader.style.height = height+'px';
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    function animate() {
+        if(animateHeader) {
+            ctx.clearRect(0,0,width,height);
+            for(var i in triangles) {
+                triangles[i].draw();
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // Canvas manipulation
+    function Triangle() {
+        var _this = this;
+
+        // constructor
+        (function() {
+            _this.coords = [{},{},{}];
+            _this.pos = {};
+            init();
+        })();
+
+        function init() {
+            _this.pos.x = width*0.5;
+            _this.pos.y = height*0.5-20;
+            _this.coords[0].x = -10+Math.random()*40;
+            _this.coords[0].y = -10+Math.random()*40;
+            _this.coords[1].x = -10+Math.random()*40;
+            _this.coords[1].y = -10+Math.random()*40;
+            _this.coords[2].x = -10+Math.random()*40;
+            _this.coords[2].y = -10+Math.random()*40;
+            _this.scale = 0.1+Math.random()*0.3;
+            _this.color = colors[Math.floor(Math.random()*colors.length)];
+            setTimeout(function() { _this.alpha = 0.8; }, 10);
+        }
+
+        this.draw = function() {
+            if(_this.alpha >= 0.005) _this.alpha -= 0.005;
+            else _this.alpha = 0;
+            ctx.beginPath();
+            ctx.moveTo(_this.coords[0].x+_this.pos.x, _this.coords[0].y+_this.pos.y);
+            ctx.lineTo(_this.coords[1].x+_this.pos.x, _this.coords[1].y+_this.pos.y);
+            ctx.lineTo(_this.coords[2].x+_this.pos.x, _this.coords[2].y+_this.pos.y);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba('+_this.color+','+ _this.alpha+')';
+            ctx.fill();
+        };
+
+        this.init = init;
+    }
+    
+
+</script>
+
+
+</body>
+</html>

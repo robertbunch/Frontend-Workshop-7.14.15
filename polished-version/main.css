@@ -1,0 +1,231 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Begin CSS */
+
+/* * { 
+  outline: 1px solid black;
+} */
+
+body {
+	background: #fff;
+	color: #222;
+	font-family: arial, sans-serif;
+	font-size: small;
+}
+
+.nav {
+	height: 50px;
+	min-width: 980px;
+}
+
+.navbar {
+	float: right;
+	margin-right: 15px;
+}
+
+.navbar li {
+	display: table-cell;
+	padding: 14px 8px 8px 8px; 
+	text-align: center; 
+	list-style: none;
+	vertical-align: middle;
+}
+
+.link {
+	text-decoration: none;
+	color: #404040;
+	font-size: small;
+}
+
+.link:hover {
+	text-decoration: underline;
+}
+
+#icon {
+	height: 25px;
+	width: 25px;
+	vertical-align: middle;
+} /* I assume for the icon to have a black hover we have to have a second img? Or can we do it in CSS? */
+
+#signIn {
+	border: 1px solid #4285f4;
+	padding: 6px 12px;
+	display: inline-block;
+	text-decoration: none;
+	background: -webkit-linear-gradient(top,#4387fd,#4683ea);
+	color: white;
+	font-weight: bold;
+	border-radius: 2px;
+}
+
+#signIn:hover {
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+	box-shadow: 0 1px 0 rgba(0,0,0,.15);
+}
+
+button {
+	cursor: pointer;
+}
+
+.logo-container {
+	clear: both;
+	margin-top: 142px;
+	text-align: center;  /* Why does this work and not the below margin:auto attempt? */
+}
+
+/* .google-logo img {
+	display: inline;
+	margin-right: auto;
+	margin-left: auto;
+} */
+
+#logo {
+	height: 95px;
+}
+
+.container {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.container2 {
+	text-align: center;
+	padding-top: 40px;
+}
+
+p a {
+	text-decoration: none;
+	color: #12c;
+}
+
+p a:hover {
+	text-decoration: underline;
+}
+
+#search-form {
+	display: inline;
+	width: 568px;
+	height: 26px;
+	border: 1px solid #d8d8d8;
+	text-indent: 7px;
+}
+
+#microphone {
+	vertical-align: middle;
+	height: 24px;
+	width: 24px;
+	margin-left: -32px;
+}
+
+#search-btn {
+	border: 1px solid #dcdcdc;
+	border-radius: 2px;
+	padding-left: 8px;
+	padding-right: 8px;
+	line-height: 20px;
+	display: inline-block;
+	text-decoration: none;
+	background: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+	color: #404040;
+	font-weight: bold;
+	margin: 0px 8px;
+}
+
+#search-btn:hover {
+	border-color: #c6c6c6;
+	color: #222;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+	box-shadow: 0 1px 0 rgba(0,0,0,.15);
+	background: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+}
+
+.footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	background: #F2F2F2;
+	height: 40px;
+	border-top: 1px solid #e4e4e4;
+	line-height: 40px;
+	vertical-align: middle;
+}
+
+#footer-left {
+	float: left;
+	margin-left: 30px;
+}
+
+#footer-right {
+	float: right;
+	margin-right: 30px;
+}
+
+#footer-left a {
+	padding-right: 27px;
+}
+
+#footer-right a {
+	padding-left: 27px;
+}
+
+.footer a {
+	text-decoration: none;
+	color: #666;	
+}
+
+.footer a:hover {
+	text-decoration: underline;
+}
+
+.footer span {
+	color: #b14436;
+}
+
+
